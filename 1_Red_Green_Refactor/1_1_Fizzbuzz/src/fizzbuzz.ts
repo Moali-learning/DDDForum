@@ -9,7 +9,7 @@ export class FizzBuzz {
        }else if (int % 5 ==0){
         return "Buzz";
        }
-       return "";
+       return String(int);
 
     }
 
