@@ -33,5 +33,8 @@ it('should return "FizzBuzzz" when passing multiple both 3 and 5 ', () => {
 it('should return "" when passing invalid multiple ', () => {
     expect(fizzbuzz.calculate(102)).toBe("")
 })
+it('should return "" when passing invalid multiple ', () => {
+    expect(fizzbuzz.calculate(-12)).toBe("")
+})
 
 });
