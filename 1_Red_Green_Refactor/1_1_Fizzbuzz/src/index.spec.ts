@@ -15,5 +15,9 @@ it('should return "FizzBuzz" when passing multiple of 15', () => {
     expect(fizzbuzz.calculate(15)).toBe("FizzBuzz")
 
 })
+it('should return "Fizz" when passing multiple of 9', () => {
+    expect(fizzbuzz.calculate(15)).toBe("Fizz")
+
+})
 
 });
