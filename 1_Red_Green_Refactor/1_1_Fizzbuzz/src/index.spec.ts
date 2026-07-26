@@ -1,8 +1,8 @@
 import { FizzBuzz } from './fizzbuzz';
 describe("fizzbuzz", () => {
-it('should return string when we pass a number', () => {
+it('should return "fizz" when passing multiple of 3', () => {
     const fizzbuzz = new FizzBuzz();
-    expect(fizzbuzz.calculate(1)).toBe("Fizz")
+    expect(typeof fizzbuzz.calculate(3)).toBe("Fizz")
 })
 
 });
