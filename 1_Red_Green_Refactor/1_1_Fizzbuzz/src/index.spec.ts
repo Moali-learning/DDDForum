@@ -9,5 +9,10 @@ it('should return "Buzz" when passing multiple of 5', () => {
     expect(fizzbuzz.calculate(5)).toBe("Buzz")
 
 })
+it('should return "FizzBuzz" when passing multiple of 15', () => {
+     const fizzbuzz = new FizzBuzz();
+    expect(fizzbuzz.calculate(15)).toBe("FizzBuzz")
+
+})
 
 });
