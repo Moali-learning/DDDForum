@@ -15,7 +15,7 @@ describe('palindrome checker', () => {
          expect(palindrome.isPalindrome(sentence)).toBeTruthy();
     })
     it("should returns false when passing an invalid sentence", () => {
-        expect("Never Odd or Even1").toBeFalsy();
+        expect(palindrome.isPalindrome("Never Odd or Even1")).toBeFalsy();
     })
 
 })
