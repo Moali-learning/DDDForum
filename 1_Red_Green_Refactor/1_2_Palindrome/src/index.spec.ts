@@ -5,4 +5,8 @@ describe('palindrome checker', () => {
         const palindrome = new Palindrome();
         expect(palindrome.isPalindrome(word)).toBeTruthy();
     })
+    it("should return false whe passing 'bill'", () => {
+         const palindrome = new Palindrome();
+        expect(palindrome.isPalindrome("bill")).toBeFalsy();
+    })
 })
