@@ -6,7 +6,11 @@ describe('palindrome checker', () => {
         expect(palindrome.isPalindrome(word)).toBeTruthy();
     })
     it("should return false whe passing 'bill'", () => {
-         const palindrome = new Palindrome();
+        const palindrome = new Palindrome();
         expect(palindrome.isPalindrome("bill")).toBeFalsy();
+    })
+    it("shold return false when passing Momx", () => {
+        const palindrome = new Palindrome();
+        expect(palindrome.isPalindrome("Momx")).toBeFalsy();
     })
 })
