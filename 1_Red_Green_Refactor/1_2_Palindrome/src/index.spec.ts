@@ -5,16 +5,17 @@ describe('palindrome checker', () => {
     beforeEach(() => {
         palindrome = new Palindrome();
     })
-    it.each(["mom","wow"])("should return true when passing valid word", (word: string) => {
+    it.each(["mom","wow", "MoM", "xMomx"])("should return true when passing valid word", (word: string) => {
         expect(palindrome.isPalindrome(word)).toBeTruthy();
     })
-    it("should return false whe passing 'bill'", () => {
-        expect(palindrome.isPalindrome("bill")).toBeFalsy();
+    it.each(["bill", "Momx"])("should return false whe passing invalid words", (word: string) => {
+        expect(palindrome.isPalindrome(word)).toBeFalsy();
     })
-    it("should return false when passing Momx", () => {
-        expect(palindrome.isPalindrome("Momx")).toBeFalsy();
+    it.each(["Was It A Rat I Saw","Never Odd or Even", "1Never Odd or Even1"])("should return true when passing a valid sentence", (sentence: string) => {
+         expect(palindrome.isPalindrome(sentence)).toBeTruthy();
     })
-    it("should return true when passing 'Was It A Rat I Saw'", () => {
-         expect(palindrome.isPalindrome("Was It A Rat I Saw")).toBeTruthy();
+    it("should returns false when passing an invalid sentence", () => {
+        expect("Never Odd or Even1").toBeFalsy();
     })
+
 })
