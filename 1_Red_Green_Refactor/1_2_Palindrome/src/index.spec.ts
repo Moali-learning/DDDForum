@@ -11,7 +11,10 @@ describe('palindrome checker', () => {
     it("should return false whe passing 'bill'", () => {
         expect(palindrome.isPalindrome("bill")).toBeFalsy();
     })
-    it("shold return false when passing Momx", () => {
+    it("should return false when passing Momx", () => {
         expect(palindrome.isPalindrome("Momx")).toBeFalsy();
+    })
+    it("should return true when passing 'Was It A Rat I Saw'", () => {
+         expect(palindrome.isPalindrome("Was It A Rat I Saw")).toBeTruthy();
     })
 })
