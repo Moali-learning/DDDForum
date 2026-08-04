@@ -5,7 +5,7 @@ describe('password validator', () => {
   it('should return false when passing "mom" ', () => {
 
     const resultObject = PasswordValidator.validate("mom")
-    // assert
+
     expect(resultObject.result).toBeFalsy();
     expect(resultObject.errors![0].message).toContain("5 - 15");
     expect(resultObject.errors![1].message).toContain("at least one digit");
@@ -17,39 +17,23 @@ describe('password validator', () => {
       expect(resultObject.result).toBeTruthy();
       expect(resultObject.errors).toBeNull();
   })
-  it('should return false when passing "Mommommom"', () => {
-    const resultObject = PasswordValidator.validate("Mommommom")
+  it.each(["Mommommom", "maxwellTheBe"])('should return false when missing a digit', (test: string) => {
+    const resultObject = PasswordValidator.validate(test)
      expect(resultObject.result).toBeFalsy();
+     expect(resultObject.errors?.length).toEqual(1);
      expect(resultObject.errors?.[0].type).toEqual("Missing Digit")
   })
-  it('should return false when passing "nocap2"', () => {
-    const resultObject = PasswordValidator.validate("nocap2")
+  it.each(["nocap2", "maxwell1_c"])('should return false when missing capitalization', (test: string) => {
+    const resultObject = PasswordValidator.validate(test)
      expect(resultObject.result).toBeFalsy();
+     expect(resultObject.errors?.length).toEqual(1);
      expect(resultObject.errors?.[0].type).toEqual("Missing Capitalization");
   })
-  it('should return false when passing more than 15 character password', () => {
-    const resultObject = PasswordValidator.validate("This is more than 15 character");
+  it.each(["This is more than 15 character", "thePhysical1234567"])('should return false when passing more than 15 character password', (test: string) => {
+    const resultObject = PasswordValidator.validate(test);
     expect(resultObject.result).toBeFalsy();
     expect(resultObject.errors?.length).toEqual(1);
     expect(resultObject.errors?.[0].type).toEqual("Invalid Range")
-  })
-  it('should return false when passing "maxwell1_c"', () => {
-     const resultObject = PasswordValidator.validate("maxwell1_c");
-        expect(resultObject.result).toBeFalsy();
-        expect(resultObject.errors?.length).toEqual(1);
-        expect(resultObject.errors?.[0].type).toEqual("Missing Capitalization");
-  })
-  it('should return false when passing "maxwellTheBe"', () => {
-     const resultObject = PasswordValidator.validate("maxwellTheBe");
-        expect(resultObject.result).toBeFalsy();
-        expect(resultObject.errors?.length).toEqual(1);
-        expect(resultObject.errors?.[0].type).toEqual("Missing Digit");
-  })
-  it('should return false when passing "thePhysical1234567"', () => {
-     const resultObject = PasswordValidator.validate("thePhysical1234567");
-        expect(resultObject.result).toBeFalsy();
-        expect(resultObject.errors?.length).toEqual(1);
-        expect(resultObject.errors?.[0].type).toEqual("Invalid Range");
   })
 
 })
