@@ -18,7 +18,9 @@ describe('password validator', () => {
   it('should return false when passing "Mommommom"', () => {
     const resultObject = PasswordValidator.validate("Mommommom")
      expect(resultObject.result).toBeFalsy();
+     expect(resultObject.errors?.[0].type).toEqual("Missing Digit")
   })
 })
+
 
 
