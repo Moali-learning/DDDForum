@@ -25,11 +25,11 @@ export default class PasswordValidator{
         }
         if (!hasCap){
              if (result.errors == null) result.errors = [];
-             result.errors?.push({type: "Missing Capitalization", message: "Password should have at least one Capital Letter"})
+             result.errors?.push({type: "Missing Capitalization", message: "Password should have at least one capital letter"})
         }
 
         if (result.errors != null){ result.result = false};
 
-        return result
+        return result;
     }
 }
