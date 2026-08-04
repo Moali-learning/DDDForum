@@ -15,6 +15,10 @@ describe('password validator', () => {
       expect(resultObject.result).toBeTruthy();
       expect(resultObject.errors).toBeNull();
   })
+  it('should return false when passing "Mommommom"', () => {
+    const resultObject = PasswordValidator.validate("Mommommom")
+     expect(resultObject.result).toBeFalsy();
+  })
 })
 
 
