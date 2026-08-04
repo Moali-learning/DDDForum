@@ -20,6 +20,11 @@ describe('password validator', () => {
      expect(resultObject.result).toBeFalsy();
      expect(resultObject.errors?.[0].type).toEqual("Missing Digit")
   })
+  it('should return false when passing "nocap"', () => {
+    const resultObject = PasswordValidator.validate("nocap")
+     expect(resultObject.result).toBeFalsy();
+     expect(resultObject.errors?.[0].type).toEqual("Missing Capitalization");
+  })
 })
 
 
