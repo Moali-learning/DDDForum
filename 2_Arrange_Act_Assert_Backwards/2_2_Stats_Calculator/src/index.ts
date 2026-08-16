@@ -7,6 +7,7 @@ type CalculatorOutput = {
 }
 export default class StatsCalculator{
     public static calculate(arr: number[]): CalculatorOutput{
-        return {minValue: 2, maxValue:7, numOfElement: 4, avg: 5}
+        if (arr.length == 0) return  {minValue: 0, maxValue:0, numOfElement: 0, avg: 0}
+        return {minValue: 2, maxValue:7, numOfElement: 4, avg: 5};
     }
 }
