@@ -2,40 +2,18 @@ import StatsCalculator from "./index"
 
 describe('stats calculator', () => {
 
-    it("should know that [2,5,6,7] returns the correct object", ()=> {
-        // Arrange
-        let input = [2,5,6,7]
+    it.each([
+        [[2,5,6,7], 2, 7, 4,5],
+        [[],0,0,0,0],
+        [[2, 4, 21, -8, 53, 40], -8, 53, 6, 18.666666666666668]
+    ])("should know that %o returns {minValue: %d, maxValue: %d, numOfElement: %d, avg: %d}",
+        (input: number[], minValue: number, maxValue: number, numOfElement: number, avg: number)=> {
         //Act
         let output = StatsCalculator.calculate(input);
         //Assert
-        expect(output.minValue).toEqual(2);
-        expect(output.maxValue).toEqual(7);
-        expect(output.numOfElement).toEqual(4);
-        expect(output.avg).toEqual(5);
+        expect(output.minValue).toEqual(minValue);
+        expect(output.maxValue).toEqual(maxValue);
+        expect(output.numOfElement).toEqual(numOfElement);
+        expect(output.avg).toEqual(avg);
     })
-
-    it("should know that [] returns the correct object with all fields equals to zero", ()=> {
-        // Arrange
-        let input: number[] = []
-        //Act
-        let output = StatsCalculator.calculate(input);
-        //Assert
-        expect(output.minValue).toEqual(0);
-        expect(output.maxValue).toEqual(0);
-        expect(output.numOfElement).toEqual(0);
-        expect(output.avg).toEqual(0);
-    })
-
-    it('should know that [2, 4, 21, -8, 53, 40] returns {  "minValue": -8,"maxValue": 53,"numOfElement": 6,"avg": 18.666666666667}', ()=> {
-        // Arrange
-        let input: number[] = [2, 4, 21, -8, 53, 40]
-        //Act
-        let output = StatsCalculator.calculate(input);
-        //Assert
-        expect(output.minValue).toEqual(-8);
-        expect(output.maxValue).toEqual(53);
-        expect(output.numOfElement).toEqual(6);
-        expect(output.avg).toEqual(18.666666666666668);
-    })
-
 })
