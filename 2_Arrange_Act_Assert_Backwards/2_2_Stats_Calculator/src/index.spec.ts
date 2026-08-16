@@ -26,4 +26,16 @@ describe('stats calculator', () => {
         expect(output.avg).toEqual(0);
     })
 
+    it('should know that [2, 4, 21, -8, 53, 40] returns {  "minValue": -8,"maxValue": 53,"numOfElement": 6,"avg": 18.666666666667}', ()=> {
+        // Arrange
+        let input: number[] = [2, 4, 21, -8, 53, 40]
+        //Act
+        let output = StatsCalculator.calculate(input);
+        //Assert
+        expect(output.minValue).toEqual(-8);
+        expect(output.maxValue).toEqual(53);
+        expect(output.numOfElement).toEqual(6);
+        expect(output.avg).toEqual(18.666666666666668);
+    })
+
 })

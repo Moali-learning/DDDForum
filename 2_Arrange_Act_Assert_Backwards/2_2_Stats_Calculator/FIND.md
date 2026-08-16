@@ -25,14 +25,14 @@
 ```
 
 ## Example three
-> input [2,10,-3,7]
+> input [2, 4, 21, -8, 53, 40]
 
 >output:
 ```typescript
 {
-    "minValue": -3,
-    "maxValue": 10,
-    "numOfElement": 4,
-    "avg": 4
+    "minValue": -8,
+    "maxValue": 53,
+    "numOfElement": 6,
+    "avg": 18.6666
 }
 ```
